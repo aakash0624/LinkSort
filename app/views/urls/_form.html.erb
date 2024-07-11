@@ -1,0 +1,12 @@
+<!-- Example: app/views/urls/_form.html.erb -->
+<%= form_with(model: @url, local: true) do |form| %>
+  <!-- Add form fields -->
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <!-- Add more fields as needed -->
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

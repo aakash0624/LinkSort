@@ -748,3 +748,121 @@ Filter chain halted as :authentication rendered or redirected
 Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 237)
 
 
+Started GET "/" for ::1 at 2024-07-11 15:46:59 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UrlsController#index as HTML
+Filter chain halted as :authentication rendered or redirected
+Completed 200 OK in 49ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1547)
+
+
+Started GET "/?auth_token=[FILTERED]" for ::1 at 2024-07-11 15:47:22 +0530
+Processing by UrlsController#index as HTML
+  Parameters: {"auth_token"=>"[FILTERED]"}
+  [1m[36mUrl Load (3.3ms)[0m  [1m[34mSELECT "urls".* FROM "urls" LIMIT $1 OFFSET $2[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/controllers/urls_controller.rb:24:in `index'
+Completed 200 OK in 85ms (Views: 38.6ms | ActiveRecord: 15.5ms | Allocations: 7614)
+
+
+Started GET "/?auth_token=[FILTERED]" for ::1 at 2024-07-11 15:53:36 +0530
+Processing by UrlsController#index as HTML
+  Parameters: {"auth_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering urls/index.html.erb within layouts/application
+  Rendered urls/index.html.erb within layouts/application (Duration: 21.1ms | Allocations: 328)
+  Rendered layout layouts/application.html.erb (Duration: 4162.4ms | Allocations: 83719)
+Completed 200 OK in 6026ms (Views: 6003.0ms | ActiveRecord: 0.0ms | Allocations: 378796)
+
+
+Started GET "/?auth_token=[FILTERED]" for ::1 at 2024-07-11 15:56:25 +0530
+Processing by UrlsController#index as HTML
+  Parameters: {"auth_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering urls/index.html.erb within layouts/application
+  Rendered urls/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 105.2ms | Allocations: 15103)
+Completed 200 OK in 130ms (Views: 108.7ms | ActiveRecord: 0.0ms | Allocations: 16496)
+
+
+Started GET "/?auth_token=[FILTERED]" for ::1 at 2024-07-11 16:01:53 +0530
+Processing by UrlsController#index as HTML
+  Parameters: {"auth_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering urls/index.html.erb within layouts/application
+  Rendered urls/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 100.1ms | Allocations: 14978)
+Completed 200 OK in 128ms (Views: 103.6ms | ActiveRecord: 0.0ms | Allocations: 16334)
+
+
+Started GET "/?auth_token=[FILTERED]" for ::1 at 2024-07-11 16:35:00 +0530
+Processing by UrlsController#index as HTML
+  Parameters: {"auth_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering urls/index.html.erb within layouts/application
+  Rendered urls/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 99.8ms | Allocations: 15052)
+Completed 200 OK in 125ms (Views: 102.8ms | ActiveRecord: 0.0ms | Allocations: 16411)
+
+
+  [1m[36mUrl Load (3.6ms)[0m  [1m[34mSELECT "urls".* FROM "urls" ORDER BY "urls"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/?auth_token=[FILTERED]" for ::1 at 2024-07-11 16:40:06 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UrlsController#index as HTML
+  Parameters: {"auth_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering urls/index.html.erb within layouts/application
+  [1m[36mUrl Load (3.4ms)[0m  [1m[34mSELECT "urls".* FROM "urls" LIMIT $1 OFFSET $2[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/urls/index.html.erb:3
+  Rendered urls/index.html.erb within layouts/application (Duration: 72.6ms | Allocations: 6711)
+  Rendered layout layouts/application.html.erb (Duration: 385.0ms | Allocations: 27462)
+Completed 200 OK in 2463ms (Views: 2388.8ms | ActiveRecord: 16.0ms | Allocations: 323948)
+
+
+Started GET "/?auth_token=[FILTERED]" for ::1 at 2024-07-11 16:42:13 +0530
+Processing by UrlsController#index as HTML
+  Parameters: {"auth_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering urls/index.html.erb within layouts/application
+  [1m[36mUrl Load (0.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" LIMIT $1 OFFSET $2[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/urls/index.html.erb:9
+  Rendered urls/index.html.erb within layouts/application (Duration: 484.9ms | Allocations: 15819)
+  Rendered layout layouts/application.html.erb (Duration: 487.9ms | Allocations: 15902)
+Completed 500 Internal Server Error in 536ms (ActiveRecord: 0.5ms | Allocations: 16989)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+    13: 
+    14:   <h1>Users</h1>
+    15:   <ul>
+    16:     <% @users.each do |user| %>
+    17:       <li><%= user.email %></li>
+    18:     <% end %>
+    19:   </ul>
+  
+app/views/urls/index.html.erb:16
+app/controllers/urls_controller.rb:31:in `block (2 levels) in index'
+app/controllers/urls_controller.rb:30:in `index'
+Started GET "/?auth_token=[FILTERED]" for ::1 at 2024-07-11 16:42:29 +0530
+Processing by UrlsController#index as HTML
+  Parameters: {"auth_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering urls/index.html.erb within layouts/application
+  [1m[36mUrl Load (0.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" LIMIT $1 OFFSET $2[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/urls/index.html.erb:3
+  Rendered urls/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 840)
+  Rendered layout layouts/application.html.erb (Duration: 42.9ms | Allocations: 3707)
+Completed 200 OK in 91ms (Views: 75.9ms | ActiveRecord: 0.5ms | Allocations: 4779)
+
+
+Started GET "/?auth_token=[FILTERED]" for ::1 at 2024-07-11 16:45:57 +0530
+Processing by UrlsController#index as HTML
+  Parameters: {"auth_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering urls/index.html.erb within layouts/application
+  [1m[36mUrl Load (0.6ms)[0m  [1m[34mSELECT "urls".* FROM "urls" LIMIT $1 OFFSET $2[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/urls/index.html.erb:3
+  Rendered urls/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 671)
+  Rendered layout layouts/application.html.erb (Duration: 47.1ms | Allocations: 3271)
+Completed 200 OK in 62ms (Views: 49.0ms | ActiveRecord: 0.6ms | Allocations: 3619)
+
+
