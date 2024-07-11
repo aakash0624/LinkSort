@@ -1,0 +1,750 @@
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2024-07-01 21:02:15 +0530
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 6 pending migrations:
+
+20220912135910_create_urls.rb
+20220913145215_count_column_urls.rb
+20220920064659_add_index.rb
+20220920091912_add_website_name_column.rb
+20220927080726_dropusers.rb
+20220927081156_create_users.rb
+
+
+):
+  
+activerecord (7.0.8.4) lib/active_record/migration.rb:662:in `check_pending!'
+activerecord (7.0.8.4) lib/active_record/migration.rb:627:in `block (2 levels) in call'
+activesupport (7.0.8.4) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.8.4) lib/active_record/migration.rb:632:in `block in call'
+activerecord (7.0.8.4) lib/active_record/migration.rb:624:in `synchronize'
+activerecord (7.0.8.4) lib/active_record/migration.rb:624:in `call'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.4) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.5.1) lib/sprockets/rails/quiet_assets.rb:17:in `call'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.4) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUrls (20220912135910)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "urls" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "slug" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220912135910"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CountColumnUrls (20220913145215)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "urls" ADD "count" integer DEFAULT 0[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220913145215"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddIndex (20220920064659)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_urls_on_slug" ON "urls" ("slug")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220920064659"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddWebsiteNameColumn (20220920091912)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "urls" ADD "website_name" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220920091912"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to Dropusers (20220927080726)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUrl Load (1.4ms)[0m  [1m[34mSELECT "urls".* FROM "urls" ORDER BY "urls"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Dropusers (20220927080726)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220927081156)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" varchar, "email" varchar, "password" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220927081156"]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-07-01 16:52:33.664945"], ["updated_at", "2024-07-01 16:52:33.664945"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Dropusers (20220927080726)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220927080726"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Dropusers (20220927080726)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Dropusers (20220927080726)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUrl Create (8.8ms)[0m  [1m[32mINSERT INTO "urls" ("name", "slug", "created_at", "updated_at", "count", "website_name") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "linkdin"], ["slug", "www.facebook.com"], ["created_at", "2024-07-01 17:38:51.307282"], ["updated_at", "2024-07-01 17:38:51.307282"], ["count", 0], ["website_name", nil]]
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Dropusers (20220927080726)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Dropusers (20220927080726)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (6.6ms)[0m  [1m[31mDELETE FROM schema_migrations WHERE version = '20220927080726';[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUrl Load (0.7ms)[0m  [1m[34mSELECT "urls".* FROM "urls" ORDER BY "urls"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (1056.5ms)[0m  [1m[35mCREATE DATABASE "ROR_development" ENCODING = 'unicode'[0m
+  [1m[35m (896.1ms)[0m  [1m[35mCREATE DATABASE "ROR_test" ENCODING = 'unicode'[0m
+  [1m[35m (37.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3670386566114074170)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUrls (20220912135910)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE TABLE "urls" ("id" bigserial primary key, "name" character varying, "slug" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (4.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220912135910"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CountColumnUrls (20220913145215)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "urls" ADD "count" integer DEFAULT 0[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220913145215"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddIndex (20220920064659)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_urls_on_slug" ON "urls" ("slug")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220920064659"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddWebsiteNameColumn (20220920091912)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "urls" ADD "website_name" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220920091912"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20220927081156)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "user_id" character varying, "email" character varying, "password" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220927081156"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-07-11 05:41:59.148518"], ["updated_at", "2024-07-11 05:41:59.148518"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3670386566114074170)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-07-11 11:15:18 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UrlsController#index as HTML
+Filter chain halted as :authentication rendered or redirected
+Completed 200 OK in 214ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 2148)
+
+
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUrl Load (3.0ms)[0m  [1m[34mSELECT "urls".* FROM "urls" ORDER BY "urls"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3670386566114074170)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveUserIdFromUsers (20240711055351)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.0ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "user_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (4.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240711055351"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3670386566114074170)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (9.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "aakashs0011@Gmail.com"], ["password", "12345"], ["created_at", "2024-07-11 05:58:56.771558"], ["updated_at", "2024-07-11 05:58:56.771558"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (17.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "clayton@hegmann.test"], ["password", "CFZQx4Tkg5arWAR5"], ["created_at", "2024-07-11 06:07:34.840985"], ["updated_at", "2024-07-11 06:07:34.840985"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "delpha_zboncak@rosenbaum.test"], ["password", "HNp0jabB58LV8W"], ["created_at", "2024-07-11 06:07:34.850457"], ["updated_at", "2024-07-11 06:07:34.850457"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "shawn.barton@hoppe.test"], ["password", "DGOfuEq55c7wV"], ["created_at", "2024-07-11 06:07:34.858791"], ["updated_at", "2024-07-11 06:07:34.858791"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "lemuel@johnston-metz.example"], ["password", "6DFJ1j0p9dbWZSA"], ["created_at", "2024-07-11 06:07:34.865238"], ["updated_at", "2024-07-11 06:07:34.865238"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "lacie@nader.test"], ["password", "1CF4Ap1es9U"], ["created_at", "2024-07-11 06:07:34.873838"], ["updated_at", "2024-07-11 06:07:34.873838"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "burt_feil@schulist.test"], ["password", "EIK6cJTkH1oLG"], ["created_at", "2024-07-11 06:07:34.880136"], ["updated_at", "2024-07-11 06:07:34.880136"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "winston@metz.example"], ["password", "fqVu7R77CGtu8mal"], ["created_at", "2024-07-11 06:07:34.888539"], ["updated_at", "2024-07-11 06:07:34.888539"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "taylor@marquardt.example"], ["password", "HRlqR4kIKBCL4"], ["created_at", "2024-07-11 06:07:34.895186"], ["updated_at", "2024-07-11 06:07:34.895186"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "minna.dubuque@collins.test"], ["password", "zPTgbn035qLIj8M"], ["created_at", "2024-07-11 06:07:34.903186"], ["updated_at", "2024-07-11 06:07:34.903186"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "damian@howell.example"], ["password", "9pqrN2Ry4JC1KkQA"], ["created_at", "2024-07-11 06:07:34.909553"], ["updated_at", "2024-07-11 06:07:34.909553"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "cori.heathcote@feest.example"], ["password", "E8zlD8nIRTz2Oq"], ["created_at", "2024-07-11 06:07:34.918047"], ["updated_at", "2024-07-11 06:07:34.918047"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "liana_hilll@yundt.test"], ["password", "Sl60yYZ3SDvwB"], ["created_at", "2024-07-11 06:07:34.925310"], ["updated_at", "2024-07-11 06:07:34.925310"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "evelynn@mertz-ebert.test"], ["password", "NyKHQ8oXvO"], ["created_at", "2024-07-11 06:07:34.933711"], ["updated_at", "2024-07-11 06:07:34.933711"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "sal@brakus-lesch.example"], ["password", "W4dmkkp0"], ["created_at", "2024-07-11 06:07:34.940278"], ["updated_at", "2024-07-11 06:07:34.940278"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "augustus_brakus@beer-mosciski.test"], ["password", "0wWisKYfww5he0L"], ["created_at", "2024-07-11 06:07:34.947722"], ["updated_at", "2024-07-11 06:07:34.947722"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Count (7.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUrl Create (11.3ms)[0m  [1m[32mINSERT INTO "urls" ("name", "slug", "created_at", "updated_at", "count", "website_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "ror"], ["slug", "https://api.rubyonrails.org/files/activesupport/lib/active_support/cache/mem_cache_store_rb.html"], ["created_at", "2024-07-11 06:10:55.661830"], ["updated_at", "2024-07-11 06:10:55.661830"], ["count", 0], ["website_name", "rails_guild"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUrl Load (0.6ms)[0m  [1m[34mSELECT "urls".* FROM "urls" ORDER BY "urls"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUrl Load (0.6ms)[0m  [1m[34mSELECT "urls".* FROM "urls" ORDER BY "urls"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUrl Destroy (10.3ms)[0m  [1m[31mDELETE FROM "urls" WHERE "urls"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUrl Load (0.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" ORDER BY "urls"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUrl Create (0.6ms)[0m  [1m[32mINSERT INTO "urls" ("name", "slug", "created_at", "updated_at", "count", "website_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "ror"], ["slug", nil], ["created_at", "2024-07-11 06:17:06.962688"], ["updated_at", "2024-07-11 06:17:06.962688"], ["count", 0], ["website_name", "https://api.rubyonrails.org/files/activesupport/lib/active_support/cache/mem_cache_store_rb.html"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUrl Load (0.6ms)[0m  [1m[34mSELECT "urls".* FROM "urls" ORDER BY "urls"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2024-07-11 11:52:56 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UrlsController#index as HTML
+Filter chain halted as :authentication rendered or redirected
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 223)
+
+
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 11:53:35 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"urls"}
+  [1m[36mUrl Load (3.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "urls"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 70ms (Views: 0.2ms | ActiveRecord: 23.7ms | Allocations: 3557)
+
+
+Started GET "/users.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 11:53:50 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"users"}
+  [1m[36mUrl Load (0.6ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "users"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 606)
+
+
+Started GET "/users.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 11:53:54 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"users"}
+  [1m[36mUrl Load (0.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "users"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 606)
+
+
+  [1m[36mUrl Load (0.9ms)[0m  [1m[34mSELECT "urls".* FROM "urls" ORDER BY "urls"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUrl Load (0.7ms)[0m  [1m[34mSELECT "urls".* FROM "urls" ORDER BY "urls"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUrl Update (11.6ms)[0m  [1m[33mUPDATE "urls" SET "slug" = $1, "updated_at" = $2 WHERE "urls"."id" = $3[0m  [["slug", "https://www.netflix.com/Kids/search?q=thor"], ["updated_at", "2024-07-11 06:30:37.544595"], ["id", 2]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUrl Load (0.6ms)[0m  [1m[34mSELECT "urls".* FROM "urls" ORDER BY "urls"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/users.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:00:49 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"users"}
+  [1m[36mUrl Load (3.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "users"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 193ms (Views: 0.2ms | ActiveRecord: 23.3ms | Allocations: 3596)
+
+
+Started GET "/users.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:00:52 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"users"}
+  [1m[36mUrl Load (0.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "users"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 594)
+
+
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:02:48 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"urls"}
+  [1m[36mUrl Load (0.7ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "urls"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 594)
+
+
+Started GET "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:03:20 +0530
+Processing by UrlsController#show as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mUrl Load (0.9ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/urls_controller.rb:91:in `search_url'
+Completed 200 OK in 585ms (Views: 17.3ms | ActiveRecord: 20.3ms | Allocations: 18288)
+
+
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:06:33 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"urls"}
+  [1m[36mUrl Load (0.7ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "urls"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 41ms (Views: 0.3ms | ActiveRecord: 11.0ms | Allocations: 1923)
+
+
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:07:53 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"urls"}
+  [1m[36mUrl Load (0.8ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "urls"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 606)
+
+
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:12:34 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"urls"}
+  [1m[36mUrl Load (0.8ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "urls"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 594)
+
+
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:13:34 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"urls"}
+  [1m[36mUrl Load (0.4ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "urls"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:23:in `redirect'
+Completed 404 Not Found in 31ms (Views: 0.5ms | ActiveRecord: 3.2ms | Allocations: 1855)
+
+
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:13:37 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"urls"}
+  [1m[36mUrl Load (0.6ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "urls"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:23:in `redirect'
+Completed 404 Not Found in 18ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 612)
+
+
+Started GET "/users.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:20:03 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"users"}
+  [1m[36mUrl Load (3.4ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "users"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 192ms (Views: 0.3ms | ActiveRecord: 21.4ms | Allocations: 4693)
+
+
+Started GET "/users.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:36:55 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"users"}
+  [1m[36mUrl Load (3.0ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "users"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 76ms (Views: 0.4ms | ActiveRecord: 5.7ms | Allocations: 4854)
+
+
+Started GET "/users.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:37:00 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"users"}
+  [1m[36mUrl Load (0.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "users"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 608)
+
+
+Started GET "/users.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:38:56 +0530
+Processing by UsersController#index as JSON
+  Parameters: {"auth_token"=>"[FILTERED]"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 82ms (Views: 48.9ms | ActiveRecord: 12.5ms | Allocations: 7357)
+
+
+Started GET "/users/1.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:39:20 +0530
+Processing by UsersController#show as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 27ms (Views: 2.9ms | ActiveRecord: 0.5ms | Allocations: 1342)
+
+
+Started GET "/users/5.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:39:24 +0530
+Processing by UsersController#show as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 17ms (Views: 2.5ms | ActiveRecord: 0.5ms | Allocations: 703)
+
+
+Started DELETE "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:39:53 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/urls.json"):
+  
+Started DELETE "/urls/1.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:40:05 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/urls/1.json"):
+  
+Started DELETE "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:40:11 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/urls/2.json"):
+  
+Started DELETE "/urls/3.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:40:15 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/urls/3.json"):
+  
+Started DELETE "/urls/3.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:41:22 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/urls/3.json"):
+  
+Started DELETE "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:41:28 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/urls/2.json"):
+  
+Started DELETE "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:41:55 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/urls/2.json"):
+  
+Started DELETE "/urls/5.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:43:50 +0530
+Processing by UrlsController#destroy as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"5"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 530)
+
+
+  
+NoMethodError (undefined method `destroy' for nil):
+  
+app/controllers/urls_controller.rb:67:in `destroy'
+Started DELETE "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:43:55 +0530
+Processing by UrlsController#destroy as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"2"}
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 470)
+
+
+  
+NoMethodError (undefined method `destroy' for nil):
+  
+app/controllers/urls_controller.rb:67:in `destroy'
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:44:05 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"urls"}
+  [1m[36mUrl Load (0.6ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "urls"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 30ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 1889)
+
+
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:44:11 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"urls"}
+  [1m[36mUrl Load (0.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "urls"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 594)
+
+
+Started GET "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:46:11 +0530
+Processing by UrlsController#show as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mUrl Load (0.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/urls_controller.rb:98:in `search_url'
+Completed 200 OK in 48ms (Views: 1.1ms | ActiveRecord: 4.0ms | Allocations: 4293)
+
+
+Started DELETE "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:46:17 +0530
+Processing by UrlsController#destroy as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"2"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 471)
+
+
+  
+NoMethodError (undefined method `destroy' for nil):
+  
+app/controllers/urls_controller.rb:67:in `destroy'
+Started DELETE "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:47:29 +0530
+Processing by UrlsController#destroy as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"2"}
+Completed 404 Not Found in 11ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 231)
+
+
+Started DELETE "/urls/1.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:47:43 +0530
+Processing by UrlsController#destroy as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"1"}
+Completed 404 Not Found in 15ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 112)
+
+
+Started GET "/urls/1.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:48:28 +0530
+Processing by UrlsController#show as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mUrl Load (0.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/urls_controller.rb:102:in `search_url'
+Filter chain halted as :search_url rendered or redirected
+Completed 200 OK in 473ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 13510)
+
+
+Started GET "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:48:35 +0530
+Processing by UrlsController#show as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mUrl Load (0.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/urls_controller.rb:102:in `search_url'
+Completed 200 OK in 23ms (Views: 1.7ms | ActiveRecord: 4.9ms | Allocations: 2247)
+
+
+Started DELETE "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:48:40 +0530
+Processing by UrlsController#destroy as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"2"}
+Completed 404 Not Found in 11ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 112)
+
+
+Started DELETE "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:48:55 +0530
+Processing by UrlsController#destroy as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"2"}
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 507)
+
+
+  
+NameError (undefined local variable or method `byebug' for an instance of UrlsController):
+  
+app/controllers/urls_controller.rb:67:in `destroy'
+Started DELETE "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:50:53 +0530
+Processing by UrlsController#destroy as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"2"}
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 500)
+
+
+  
+NameError (undefined local variable or method `byebug' for an instance of UrlsController):
+  
+app/controllers/urls_controller.rb:67:in `destroy'
+Started DELETE "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 12:59:27 +0530
+Processing by UrlsController#destroy as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"2"}
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 500)
+
+
+  
+NameError (undefined local variable or method `byebug' for an instance of UrlsController):
+  
+app/controllers/urls_controller.rb:67:in `destroy'
+Started DELETE "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 13:01:21 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UrlsController#destroy as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"2"}
+Completed 404 Not Found in 33130ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 122763)
+
+
+Started DELETE "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 13:04:37 +0530
+Processing by UrlsController#destroy as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mUrl Load (4.3ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/urls_controller.rb:110:in `set_url'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/urls_controller.rb:69:in `destroy'
+  [1m[36mUrl Destroy (1.5ms)[0m  [1m[31mDELETE FROM "urls" WHERE "urls"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/urls_controller.rb:69:in `destroy'
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/urls_controller.rb:69:in `destroy'
+Completed 200 OK in 101ms (Views: 0.3ms | ActiveRecord: 27.5ms | Allocations: 10025)
+
+
+Started GET "/urls/2.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 13:04:44 +0530
+Processing by UrlsController#show as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mUrl Load (0.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/urls_controller.rb:103:in `search_url'
+Filter chain halted as :search_url rendered or redirected
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 629)
+
+
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 13:05:19 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"urls"}
+  [1m[36mUrl Load (0.6ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "urls"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 19ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 826)
+
+
+  [1m[36mTRANSACTION (44.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUrl Create (2.4ms)[0m  [1m[32mINSERT INTO "urls" ("name", "slug", "created_at", "updated_at", "count", "website_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "ror"], ["slug", nil], ["created_at", "2024-07-11 07:36:22.981431"], ["updated_at", "2024-07-11 07:36:22.981431"], ["count", 0], ["website_name", "www.gogle.com"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 13:06:27 +0530
+Processing by RedirectsController#redirect as JSON
+  Parameters: {"auth_token"=>"[FILTERED]", "url_id"=>"urls"}
+  [1m[36mUrl Load (0.6ms)[0m  [1m[34mSELECT "urls".* FROM "urls" WHERE "urls"."slug" = $1 LIMIT $2[0m  [["slug", "urls"], ["LIMIT", 1]]
+  ↳ app/controllers/redirects_controller.rb:6:in `redirect'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 594)
+
+
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 13:08:33 +0530
+Processing by UrlsController#index as JSON
+  Parameters: {"auth_token"=>"[FILTERED]"}
+  [1m[36mUrl Load (0.9ms)[0m  [1m[34mSELECT "urls".* FROM "urls"[0m
+  ↳ app/controllers/urls_controller.rb:15:in `index'
+Completed 500 Internal Server Error in 39ms (Views: 10.3ms | ActiveRecord: 6.4ms | Allocations: 4284)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/urls_controller.rb:26:in `index'
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 13:09:21 +0530
+Processing by UrlsController#index as JSON
+  Parameters: {"auth_token"=>"[FILTERED]"}
+  [1m[36mUrl Load (0.5ms)[0m  [1m[34mSELECT "urls".* FROM "urls" LIMIT $1 OFFSET $2[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/controllers/urls_controller.rb:24:in `index'
+Completed 200 OK in 40ms (Views: 11.2ms | ActiveRecord: 6.8ms | Allocations: 3705)
+
+
+Started GET "/" for ::1 at 2024-07-11 13:09:43 +0530
+Processing by UrlsController#index as HTML
+Filter chain halted as :authentication rendered or redirected
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 115)
+
+
+Started GET "/" for ::1 at 2024-07-11 13:21:21 +0530
+Started GET "/urls.json?auth_token=[FILTERED]" for ::1 at 2024-07-11 13:21:21 +0530
+Started GET "/" for ::1 at 2024-07-11 13:21:21 +0530
+Started GET "/" for ::1 at 2024-07-11 13:21:21 +0530
+Started GET "/" for ::1 at 2024-07-11 13:21:21 +0530
+Processing by UrlsController#index as HTML
+Filter chain halted as :authentication rendered or redirected
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 177)
+
+
+Processing by UrlsController#index as JSON
+  Parameters: {"auth_token"=>"[FILTERED]"}
+Processing by UrlsController#index as HTML
+Filter chain halted as :authentication rendered or redirected
+Completed 200 OK in 49ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 144)
+
+
+  [1m[36mUrl Load (4.8ms)[0m  [1m[34mSELECT "urls".* FROM "urls" LIMIT $1 OFFSET $2[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/controllers/urls_controller.rb:24:in `index'
+Completed 200 OK in 284ms (Views: 197.1ms | ActiveRecord: 60.5ms | Allocations: 5389)
+
+
+Processing by UrlsController#index as HTML
+Filter chain halted as :authentication rendered or redirected
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 144)
+
+
+Processing by UrlsController#index as HTML
+Filter chain halted as :authentication rendered or redirected
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 113)
+
+
+Started GET "/" for ::1 at 2024-07-11 13:21:50 +0530
+Processing by UrlsController#index as HTML
+Filter chain halted as :authentication rendered or redirected
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 113)
+
+
+Started GET "/?auth_token=[FILTERED]" for ::1 at 2024-07-11 13:25:28 +0530
+Processing by UrlsController#index as HTML
+  Parameters: {"auth_token"=>"[FILTERED]"}
+  [1m[36mUrl Load (0.6ms)[0m  [1m[34mSELECT "urls".* FROM "urls" LIMIT $1 OFFSET $2[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/controllers/urls_controller.rb:24:in `index'
+Completed 200 OK in 36ms (Views: 23.2ms | ActiveRecord: 0.6ms | Allocations: 979)
+
+
+Started GET "/" for ::1 at 2024-07-11 13:29:56 +0530
+  
+SyntaxError (C:/Users/hp/Desktop/linkshort/app/controllers/application_controller.rb:19: dynamic constant assignment
+    SECURITY_KEY = "123abcde45"  # Replace wi...
+    ^~~~~~~~~~~~
+):
+  
+app/controllers/application_controller.rb:19: dynamic constant assignment
+app/controllers/application_controller.rb:19: dynamic constant assignment
+app/controllers/urls_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2024-07-11 13:30:28 +0530
+Processing by UrlsController#index as HTML
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 12ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 265)
+
+
+Started GET "/" for ::1 at 2024-07-11 13:30:42 +0530
+Processing by UrlsController#index as HTML
+Filter chain halted as :authentication rendered or redirected
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 237)
+
+
