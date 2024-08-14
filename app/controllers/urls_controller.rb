@@ -6,12 +6,9 @@ class UrlsController < ApplicationController
   #without 'net/http' => uninitialized constant Net::HTTP
   require 'net/http'
 
-  #skip the authenticity token.
   skip_before_action :verify_authenticity_token
 
-  #display all the data in the database.
   def index
-    # searchUrl is used to search the url in the database.
     if params[:s].present?
       @searchUrl = Url.where("name LIKE ?", "%" + params[:s] + "%")
       if @searchUrl.present?
@@ -26,27 +23,13 @@ class UrlsController < ApplicationController
   end
 
   def create
-    #create a new record in the database.
     @url = Url.new(set_url_params)
 
-    # generate random string and number and assign it to slug column in the database table.
     @url.slug = SecureRandom.hex(2)
-
-    #this will trime only the https:// and www. from the url.
-    # @url.website_name = URI.parse(@url.name).host
 
     #with the help of gsub method we can remove .com from the url.
     @url.website_name = URI.parse(@url.name).host.gsub(/(http:\/\/|https:\/\/|www\.|\.com)/, "")
 
-    # binding.irb
-
-    # urlCheck = URI.parse(@url.name)
-    # req = Net::HTTP.new(urlCheck.host, urlCheck.port)
-    # req.use_ssl = true
-    # path = urlCheck.path if urlCheck.path.present?
-    # res = req.request_head(path || '/')
-
-    #if res.code == "200"
       if @url.save!
         render json: @url, status: :created
       #end
@@ -56,7 +39,6 @@ class UrlsController < ApplicationController
       end
   end
 
-  #display the details of the url in the show page.
   def show
       render json: @url,
       status: :ok
@@ -93,7 +75,7 @@ class UrlsController < ApplicationController
   # used to prevent the mass assignment vulnerability.
   private
   def set_url_params
-    params.require(:url).permit(:name)
+    params.require(:urls).permit(:name)
   end
 
   def search_url
