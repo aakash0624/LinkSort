@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  root "users#index"
   resources :users
 
   root "urls#index"  
@@ -12,7 +11,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root "urls#index"
   get '/:url_id' => "redirects#redirect"
 
 
